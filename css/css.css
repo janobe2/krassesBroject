@@ -1,0 +1,18 @@
+.titleBar {
+    display: inline;
+}
+
+#btnCreate {
+    float: right;
+}
+
+#btnItem {
+    float: left;
+}
+
+#title1 {
+    font-size: 25px;
+    color: white;
+    font-family: Arial, serif;
+}
+
