@@ -44,6 +44,12 @@ h1 {
     text-decoration: none;
     font-size: 18px;
     background: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#button1:hover{
+    color: gray;
 }
 
 #button2 {
@@ -55,6 +61,12 @@ h1 {
     text-decoration: none;
     font-size: 40px;
     background: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+#button2:hover{
+    color: gray;
 }
 
 
@@ -80,4 +92,9 @@ h1 {
     margin-right: auto;
     width: 50%;
     object-fit: contain;
+}
+
+.icon{
+    width: 100%;
+    height: auto;
 }
