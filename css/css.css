@@ -31,6 +31,17 @@ h1 {
     border: none;
     text-align: center;
     text-decoration: none;
+    font-size: 40px;
+    background: none;
+}
+
+#button3 {
+    float: left;
+    margin-right: 5%;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
     font-size: 18px;
     background: none;
 }
@@ -45,6 +56,7 @@ h1 {
     font-size: 40px;
     background: none;
 }
+
 
 .item {
 
