@@ -54,7 +54,7 @@ var bildBreite;
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        destinationType = navigator.camera.DestinationType;
+        destinationType = navigator.camera.Destinat/**/ionType;
     };
 
     $("#aufnahme").click(function () {
