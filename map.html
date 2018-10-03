@@ -35,23 +35,29 @@
     <link rel="stylesheet" href="css/freelancer.css">
     <link rel="stylesheet" href="css/css.css">
     <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+    <script src="js/geolocation.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=Your_API_Key"></script>
     <title>Hello World</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
-
-        <!--<b><p class="titleBar" id="title1">Item Liste</p></b>-->
-        <h1>Karte</h1>
-
-        <form action=index.html>
-            <input type="submit" id="button2" class="titleBar" value=">">
-        </form>
-
+        <table style="width:100%">
+            <tr>
+                <th>
+                    <h1>Karte</h1>
+                </th>
+                <th>
+                    <form action=index.html>
+                        <input type="submit" id="button2" class="titleBar" value=">">
+                    </form>
+                </th>
+            </tr>
+        </table>
     </div>
+
 </nav>
-<script src="https://maps.googleapis.com/maps/api/js?key=Your_API_Key"></script>
+
 <script type="text/javascript" src="js/index.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
