@@ -46,9 +46,9 @@
         <table style="width:100%">
             <tr>
                 <th>
-                <form action=map.html>
-                    <input type="submit" id="button1" class="titleBar" value="Karte">
-                </form>
+                    <form action=map.html>
+                        <input type="submit" id="button1" class="titleBar" value="Karte">
+                    </form>
                 </th>
                 <th>
                     <h1>Item Liste</h1>
@@ -66,19 +66,49 @@
 
 <button onclick="myFunction()">Try it</button>
 
-<div id="main"></div>
+<div id="itemList"></div>
 
 
 <script>
-    function myFunction() {
-        var div = document.createElement("div");
-        div.style.width = "300px";
-        div.style.height = "300px";
-        div.style.background = "red";
-        div.innerHTML = "hello";
-        div.style.display = "inline-block";
+    var blockId = "";
 
-        document.getElementById("main").appendChild(div);
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+        for (var i = 0; i < 5; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    function myFunction() {
+
+        blockId = makeid();
+
+        //Create Block
+        var div = document.createElement("div");
+        div.setAttribute("class", "item");
+        div.setAttribute("id", blockId);
+        document.getElementById("itemList").appendChild(div);
+
+        var textBlockId = makeid();
+
+        //Create Text Block
+        var textBlock = document.createElement("div");
+        textBlock.setAttribute("id", textBlockId);
+        textBlock.setAttribute("class", "textBlock");
+        document.getElementById(blockId).appendChild(textBlock);
+
+        //Insert text
+        var text = document.createElement("span");
+        text.innerHTML = "Test";
+        document.getElementById(textBlockId).appendChild(text);
+
+        //Insert Image
+        var image = document.createElement("img");
+        image.src = "img/noLogo.png";
+        document.getElementById(blockId).appendChild(image);
 
     }
 </script>
