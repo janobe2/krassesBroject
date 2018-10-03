@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/css.css">
     <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/geolocation.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=Your_API_Key"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUR3rEplQ01WE0sdk2Ge6hy7IYbVHzlBI"></script>
     <title>Hello World</title>
 </head>
 <body>
@@ -68,5 +68,54 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<p id="demo">Click the button to get your position.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<div id="mapholder"></div>
+
+<script>
+    var x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        var latlon = position.coords.latitude + "," + position.coords.longitude;
+        var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
+            +latlon+"&zoom=14&size=400x300&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU";
+        document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+    }
+    //To use this code on your website, get a free API key from Google.
+    //Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                x.innerHTML = "User denied the request for Geolocation."
+                break;
+            case error.POSITION_UNAVAILABLE:
+                x.innerHTML = "Location information is unavailable."
+                break;
+            case error.TIMEOUT:
+                x.innerHTML = "The request to get user location timed out."
+                break;
+            case error.UNKNOWN_ERROR:
+                x.innerHTML = "An unknown error occurred."
+                break;
+        }
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
 </body>
+
 </html>
