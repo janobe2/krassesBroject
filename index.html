@@ -57,6 +57,22 @@
     </div>
 </nav>
 
+<div id="main"></div>
+
+
+<script>
+    var div = document.createElement("div");
+    div.style.width = "300px";
+    div.style.height = "300px";
+    div.style.background = "red";
+    div.innerHTML = "hello";
+    div.style.display = "inline-block";
+
+    document.getElementById("main").appendChild(div);
+
+</script>
+
+
 <script type="text/javascript" src="js/index.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
