@@ -94,7 +94,12 @@ h1 {
     object-fit: contain;
 }
 
-.icon{
-    width: 100%;
+#mapImg{
+    width: 45%;
+    height: auto;
+}
+
+#addImg{
+    width: 50%;
     height: auto;
 }
