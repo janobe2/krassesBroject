@@ -33,6 +33,16 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="css/freelancer.css">
     <link rel="stylesheet" href="css/css.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="js/geolocation.js"></script>
 
 
     <title>Hello World</title>
@@ -55,18 +65,6 @@
     </div>
 </nav>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="js/geolocation.js"></script>
-<script src="js/ObjectService.js"></script>
-
     <div id="map"></div>
         <script>
     // Note: This example requires that you consent to location sharing when
@@ -79,7 +77,7 @@
     Objectservice.addItem(new Date(), 'Test', 'Mein ewigs langer Kommentar', 5.434534, 17.945);
 
 
-
+    //Initialisiert Map (Bewegt dich zu besagtem Punkt)
     var map, infoWindow;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -110,7 +108,7 @@
         }
 
 
-
+    //Errormeldung falls Map nicht funktioniert
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -119,8 +117,9 @@
         infoWindow.open(map);
     }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbYuPDqHpJmkThcZ21kqMOwsJNGMSnASY&callback=initMap">
+<script
+        async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbYuPDqHpJmkThcZ21kqMOwsJNGMSnASY&callback=initMap">
+        //Oben wird Google Maps mit Hilfe der API verbunden
 </script>
 
 

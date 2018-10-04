@@ -42,18 +42,26 @@
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
     <div class="container">
 
-        <form action=index.html>
-            <input type="submit" id="button1" class="titleBar" value="<">
-        </form>
 
-        <!--<b><p class="titleBar" id="title1">Item Info</p></b>-->
-        <h1>Item Info</h1>
 
-        <form action=index.html>
-            <input type="submit" id="button4" class="titleBar" onclick="itemFound();" value="Gefunden!">
-        </form>
+
 
     </div>
+    <h1>Item Info</h1>
+    <table style="width:100%">
+        <tr>
+            <th>
+                <form action=index.html>
+                    <input type="submit" id="button1" class="titleBar" value="<">
+                </form>
+            </th>
+            <th>
+                <form action=index.html>
+                    <input type="submit" id="button4" class="titleBar" onclick="itemFound();" value="Gefunden!">
+                </form>
+            </th>
+        </tr>
+    </table>
 </nav>
 
 <div class="form-group">
@@ -68,7 +76,7 @@
 <div id="PatriksKarte:)"></div>
 
 <script>
-
+    //ID aus der URL auslesen
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
@@ -82,7 +90,7 @@
     }
 
 
-    //Get informations
+    //Infos aus Speicher holen
     var objectService = new ObjectService();
     objectService.initialize(false);
     var items = objectService.getItems();
@@ -97,7 +105,7 @@
             noteTxtBox.value = items[i].notiz;
         }
     }
-
+    //Wenn Item gefunden, Item entfernen und zurück zu index.html
     function itemFound() {
         objectService.removeItem(id);
         window.location.href = "index.html";

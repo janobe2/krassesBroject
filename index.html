@@ -67,6 +67,7 @@
 <div id="itemList"></div>
 
 <script>
+    //Wählt random aus den Bildern (Notlösung weil Kamera nicht ging)
     var blockId = "";
     var clickHandler = ('ontouchstart' in document.documentElement ? "touchstart" : "click");
 
@@ -100,7 +101,7 @@
 
         blockId = id;
 
-        //Create Block
+        //Erstellt den Block der das Bild beinhaltet
         var div = document.createElement("div");
         div.setAttribute("class", "item");
         div.setAttribute("onclick", "showInformation(" + id + ")");
@@ -111,29 +112,29 @@
 
         var textBlockId = id + "textBlock";
 
-        //Create Text Block
+        //Erstellt den Block der den Text beinhaltet
         var textBlock = document.createElement("div");
         textBlock.setAttribute("id", textBlockId);
         textBlock.setAttribute("class", "textBlock");
         document.getElementById(blockId).appendChild(textBlock);
 
-        //Insert text
+        //Füllt den Textblock mit dem Text
         var text = document.createElement("span");
         text.innerHTML = name;
         document.getElementById(textBlockId).appendChild(text);
 
-        //Insert Image
+        //Füllt den Bildblock mit dem Bild
         var image = document.createElement("img");
         image.src = randomImage();
         image.setAttribute("class", "img");
         document.getElementById(blockId).appendChild(image);
     }
 
-    //Initialize
+    //Initialisiert
     var objectService = new ObjectService();
     objectService.initialize(false);
 
-    //Get data
+    //Daten holen
     var items = objectService.getItems();
 
     for (var i = items.length - 1; i >= 0; i--) {
