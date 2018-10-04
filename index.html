@@ -68,6 +68,8 @@
 
 <script>
     var blockId = "";
+    var clickHandler = ('ontouchstart' in document.documentElement ? "touchstart" : "click");
+
 
     function randomImage() {
         var image_Array = [
@@ -85,11 +87,11 @@
             "img/pictures/ocean2.jpg"
         ]
 
-        var num = Math.floor( Math.random() * image_Array.length );
-        return image_Array[ num ];
+        var num = Math.floor(Math.random() * image_Array.length);
+        return image_Array[num];
     }
 
-    function showInformation(id){
+    function showInformation(id) {
         id = id.id;
         window.location.href = "info.html?id=" + id;
     }
@@ -101,8 +103,10 @@
         //Create Block
         var div = document.createElement("div");
         div.setAttribute("class", "item");
-        div.setAttribute("onclick", "showInformation(" +id+ ")");
+        div.setAttribute("onclick", "showInformation(" + id + ")");
+        div.setAttribute("touchstart", "showInformation(" + id + ")");
         div.setAttribute("id", blockId);
+        div.style.cursor = "pointer";
         document.getElementById("itemList").appendChild(div);
 
         var textBlockId = id + "textBlock";
