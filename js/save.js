@@ -42,7 +42,7 @@ function UserService() {
         localStorage.setItem(_NAME, JSON.stringify(_items));
     }
 
-    this.getAllData = function{
+    this.getAllData = function(){
         return _items;
     }
 

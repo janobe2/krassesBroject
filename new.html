@@ -28,13 +28,13 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" href="css/freelancer.css">
     <link rel="stylesheet" href="css/css.css">
     <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/save.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
 
     <title>Kamera1</title>
 </head>
@@ -69,13 +69,14 @@
 
 <h4>Zugriff auf die Kamera</h4>
 <div id="btn">
-    <button<!----> id="aufnahme">
+    <button> id="aufnahme">
         Photo aufnehmen und anzeigen
     </button><br />
     <button id="speichern">
         Photo aufnehmen und  speichern
     </button><br />
     <button id="loeschen">Photoanzeige l&ouml;schen</button>
+    <button id="save" onclick="save();">Save the shit</button>
 </div>
 <div id="meldung"></div>
 <img id="bild" />
@@ -89,20 +90,14 @@
     userService.initialize(false);
 
     function save(){
-        userService.addData(){
-
-        }
+        userService.addData(document.getElementById("textbox").value , document.getElementById("textbox2").value , 123);
     }
 
 </script>
 
-<script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="scripts/index.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
