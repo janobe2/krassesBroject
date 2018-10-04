@@ -96,6 +96,10 @@
     var longitude = 0;
     userService.initialize(false);
 
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(writePosition);
+    }
+
     function makeid() {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
