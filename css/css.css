@@ -82,8 +82,9 @@ h1 {
 
 .textBlock {
     background-color: darkgray;
-    color: lightgray;
+    color: whitesmoke;
     padding-right: 1%;
+    font-family: Arial, serif;
 }
 
 .img {
