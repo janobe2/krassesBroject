@@ -115,6 +115,9 @@
         longitude = position.coords.longitude;
     }
 
+    function disappear(){
+        message.setAttribute("hidden", "true");
+    }
 
     function save(){
         message.removeAttribute("hidden");
@@ -134,6 +137,7 @@
             message.style.color = "red";
             message.innerHTML = "Füllen Sie alle Felder aus!";
         }
+        setTimeout(disappear, 5000);
     }
 
 </script>
