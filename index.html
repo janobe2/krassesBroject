@@ -69,6 +69,26 @@
 <script>
     var blockId = "";
 
+    function randomImage() {
+        var image_Array = [
+            "img/pictures/animal1.jpg",
+            "img/pictures/animal2.jpg",
+            "img/pictures/beach1.jpg",
+            "img/pictures/beach2.jpg",
+            "img/pictures/building1.jpg",
+            "img/pictures/building2.jpg",
+            "img/pictures/flower1.jpg",
+            "img/pictures/flower2.jpg",
+            "img/pictures/mountain1.jpg",
+            "img/pictures/mountain2.jpg",
+            "img/pictures/ocean1.jpeg",
+            "img/pictures/ocean2.jpg"
+        ]
+
+        var num = Math.floor( Math.random() * image_Array.length );
+        return image_Array[ num ];
+    }
+
     function createBox(id, name) {
 
         blockId = id;
@@ -79,7 +99,7 @@
         div.setAttribute("id", blockId);
         document.getElementById("itemList").appendChild(div);
 
-        var textBlockId = id+"textBlock";
+        var textBlockId = id + "textBlock";
 
         //Create Text Block
         var textBlock = document.createElement("div");
@@ -94,7 +114,7 @@
 
         //Insert Image
         var image = document.createElement("img");
-        image.src = "img/noLogo.png";
+        image.src = randomImage();
         image.setAttribute("class", "img");
         document.getElementById(blockId).appendChild(image);
     }
@@ -106,7 +126,7 @@
     //Get data
     var items = objectService.getItems();
 
-    for(var i = items.length - 1; i >= 0; i--) {
+    for (var i = items.length - 1; i >= 0; i--) {
         createBox(items[i].id, items[i].name);
     }
 
