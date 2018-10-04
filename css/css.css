@@ -92,7 +92,8 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    object-fit: contain;
+    height: auto;
+    object-fit: fill;
 }
 
 #mapImg{
