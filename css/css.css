@@ -96,9 +96,9 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 50%;
     height: auto;
-    object-fit: scale-down;
+    object-fit: contain;
 }
 
 #mapImg{
