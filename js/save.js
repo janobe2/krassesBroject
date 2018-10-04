@@ -1,7 +1,5 @@
-
-function UserService() {
-    _NAME = 'USERSERVICE',
-
+function ObjectService() {
+    _NAME = 'ObjectService',
         _items = [],
 
         this.initialize = function(empty) {
@@ -23,17 +21,28 @@ function UserService() {
             }
         }
 
-    this.addData = function(name, note, location) {
-        _items.push({name: name, note: note, location: location});
+    this.getItems = function() {
+        return _items;
+    }
+
+    this.addItem = function(id, name, notiz, longitude, latitude) {
+        _items.push(
+            {
+                id: id,
+                name: name,
+                notiz: notiz,
+                longitude: longitude,
+                latitude: latitude
+            });
 
         console.log('items added');
         console.log(_items);
         localStorage.setItem(_NAME, JSON.stringify(_items));
     }
 
-    this.removeData = function(name) {
+    this.removeItem = function(id) {
         for(var i = _items.length - 1; i >= 0; i--) {
-            if(_items[i].name === name) {
+            if(_items[i].id === id) {
                 _items.splice(i, 1);
             }
         }
@@ -42,13 +51,11 @@ function UserService() {
         localStorage.setItem(_NAME, JSON.stringify(_items));
     }
 
-    this.getAllData = function(){
-        return _items;
+    this.getItem = function(id) {
+        for(var i = _items.length - 1; i >= 0; i--) {
+            if(_items[i].id === id) {
+                return _items[i];
+            }
+        }
     }
-
-    this.getSpecifiedData = function(name){
-        return _items().getKey(name);
-    }
-
-
 }

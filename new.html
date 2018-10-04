@@ -28,15 +28,19 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
     <link rel="stylesheet" href="css/freelancer.css">
     <link rel="stylesheet" href="css/css.css">
-    <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/save.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
-
-    <title>Kamera1</title>
+    <title>Hello World</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
@@ -82,20 +86,31 @@
 <img id="bild" />
 
 
-<p hidden="hidden">Speichervorgang abgeschlossen.</p>
+<p hidden="true" id="commentMessage"></p>
 
 <script>
 
+    var message = document.getElementById("commentMessage");
     var userService = new UserService();
     userService.initialize(false);
 
     function save(){
-        userService.addData(document.getElementById("textbox").value , document.getElementById("textbox2").value , 123);
+        if(document.getElementById("textbox").value !== "" && document.getElementById("textbox2").value !== "") {
+            userService.addData(document.getElementById("textbox").value, document.getElementById("textbox2").value, 123);
+            message.setAttribute("hidden", "false");
+            message.style.color = "darkgreen";
+            message.innerHTML = "Speicherung erfolgreich!";
+        }else{
+            message.setAttribute("hidden", "false");
+            message.style.color = "red";
+            message.innerHTML = "Füllen Sie alle Felder aus!";
+        }
     }
 
 </script>
 
-<script type="text/javascript" src="scripts/index.js"></script>
+
+<div id="itemList"></div>
 <script type="text/javascript" src="js/index.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
