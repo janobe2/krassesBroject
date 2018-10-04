@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/freelancer.css">
     <link rel="stylesheet" href="css/css.css">
     <script type="text/ javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/save.js"></script>
 
     <title>Kamera1</title>
 </head>
@@ -68,7 +69,7 @@
 
 <h4>Zugriff auf die Kamera</h4>
 <div id="btn">
-    <button id="aufnahme">
+    <button<!----> id="aufnahme">
         Photo aufnehmen und anzeigen
     </button><br />
     <button id="speichern">
@@ -78,6 +79,22 @@
 </div>
 <div id="meldung"></div>
 <img id="bild" />
+
+
+<p hidden="hidden">Speichervorgang abgeschlossen.</p>
+
+<script>
+
+    var userService = new UserService();
+    userService.initialize(false);
+
+    function save(){
+        userService.addData(){
+
+        }
+    }
+
+</script>
 
 <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="cordova.js"></script>

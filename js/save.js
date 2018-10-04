@@ -23,19 +23,15 @@ function UserService() {
             }
         }
 
-    this.getUsers = function() {
-        return _items;
-    }
-
-    this.addUser = function(name, age) {
-        _items.push({name: name, age: age});
+    this.addData = function(name, note, location) {
+        _items.push({name: name, note: note, location: location});
 
         console.log('items added');
         console.log(_items);
         localStorage.setItem(_NAME, JSON.stringify(_items));
     }
 
-    this.removeUser = function(name) {
+    this.removeData = function(name) {
         for(var i = _items.length - 1; i >= 0; i--) {
             if(_items[i].name === name) {
                 _items.splice(i, 1);
@@ -45,4 +41,14 @@ function UserService() {
         console.log(_items);
         localStorage.setItem(_NAME, JSON.stringify(_items));
     }
+
+    this.getAllData = function{
+        return _items;
+    }
+
+    this.getSpecifiedData = function(name){
+        return _items().getKey(name);
+    }
+
+
 }
