@@ -86,23 +86,25 @@
 <img id="bild" />
 
 
-<p hidden="true" id="commentMessage"></p>
+<p id="commentMessage" hidden>krass</p>
 
 <script>
 
-    var message = document.getElementById("commentMessage");
-    var userService = new UserService();
+    var message = document.getElementsByTagName("p")[0];
+    var userService = new ObjectService();
     userService.initialize(false);
 
     function save(){
+        message.removeAttribute("hidden");
         if(document.getElementById("textbox").value !== "" && document.getElementById("textbox2").value !== "") {
-            userService.addData(document.getElementById("textbox").value, document.getElementById("textbox2").value, 123);
-            message.setAttribute("hidden", "false");
-            message.style.color = "darkgreen";
+            userService.addItem(document.getElementById("textbox").value, document.getElementById("textbox2").value, 123);
+
+            alert("check de shit");
+            //message.style.color = "darkgreen";
             message.innerHTML = "Speicherung erfolgreich!";
         }else{
-            message.setAttribute("hidden", "false");
-            message.style.color = "red";
+
+            //message.style.color = "red";
             message.innerHTML = "Füllen Sie alle Felder aus!";
         }
     }
