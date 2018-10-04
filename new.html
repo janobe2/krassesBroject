@@ -71,20 +71,14 @@
     <input type="text" class="form-control" id="textbox2">
 </div>
 
-<h4>Zugriff auf die Kamera</h4>
-<div id="btn">
-    <button> id="aufnahme">
-        Photo aufnehmen und anzeigen
-    </button><br />
-    <button id="speichern">
-        Photo aufnehmen und  speichern
-    </button><br />
-    <button id="loeschen">Photoanzeige l&ouml;schen</button>
-    <button id="save" onclick="save();">Save the shit</button>
+<div style="margin-left: 5%">
+    <h4>Zugriff auf die Kamera</h4>
+    <div id="btn">
+        <button id="save" onclick="save();">Save the shit</button>
+    </div>
+    <div id="meldung"></div>
+    <img id="bild"/>
 </div>
-<div id="meldung"></div>
-<img id="bild" />
-
 
 <p id="commentMessage" hidden>krass</p>
 
@@ -95,10 +89,8 @@
     var latitude = 0;
     var longitude = 0;
     userService.initialize(false);
+    var items = userService.getItems();
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(writePosition);
-    }
 
     function makeid() {
         var text = "";
@@ -110,33 +102,46 @@
         return text;
     }
 
-    function writePosition(position){
+    var id = makeid();
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(writePosition);
+    }
+
+
+
+    function writePosition(position) {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
     }
 
-    function disappear(){
+    function disappear() {
         message.setAttribute("hidden", "true");
     }
 
-    function save(){
-        message.removeAttribute("hidden");
-        if(document.getElementById("textbox").value !== "" && document.getElementById("textbox2").value !== "") {
+    function save() {
+        if (document.getElementById("textbox").value !== "" && document.getElementById("textbox2").value !== "") {
 
             //Geolocation
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(writePosition);
             }
 
-            userService.addItem(makeid(),document.getElementById("textbox").value, document.getElementById("textbox2").value, latitude, longitude);
+            for (var i = items.length - 1; i >= 0; i--) {
+                if (items[i].id === id) {
+                    userService.removeItem(id);
+                }
+            }
+            userService.addItem(id, document.getElementById("textbox").value, document.getElementById("textbox2").value, latitude, longitude);
 
             message.style.color = "darkgreen";
             message.innerHTML = "Speicherung erfolgreich!";
-        }else{
+        } else {
 
             message.style.color = "red";
             message.innerHTML = "Füllen Sie alle Felder aus!";
         }
+        message.removeAttribute("hidden");
         setTimeout(disappear, 5000);
     }
 

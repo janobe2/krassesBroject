@@ -65,20 +65,20 @@
     <label id="nametextbox2">Notiz:</label>
     <input type="text" class="form-control" id="textbox2" disabled>
 </div>
-
 <div id="PatriksKarte:)"></div>
 
 <script>
 
-    function getQueryVariable(variable)
-    {
+    function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
-        for (var i=0;i<vars.length;i++) {
+        for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
-            if(pair[0] === variable){return pair[1];}
+            if (pair[0] === variable) {
+                return pair[1];
+            }
         }
-        return(false);
+        return (false);
     }
 
 
@@ -92,7 +92,7 @@
         id = getQueryVariable("id");
 
     for (var i = items.length - 1; i >= 0; i--) {
-        if(items[i].id === id){
+        if (items[i].id === id) {
             nameTxtBox.value = items[i].name;
             noteTxtBox.value = items[i].notiz;
         }
