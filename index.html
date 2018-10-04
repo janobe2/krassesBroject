@@ -89,6 +89,11 @@
         return image_Array[ num ];
     }
 
+    function showInformation(id){
+        id = id.id;
+        window.location.href = "info.html?id=" + id;
+    }
+
     function createBox(id, name) {
 
         blockId = id;
@@ -96,6 +101,7 @@
         //Create Block
         var div = document.createElement("div");
         div.setAttribute("class", "item");
+        div.setAttribute("onclick", "showInformation(" +id+ ")");
         div.setAttribute("id", blockId);
         document.getElementById("itemList").appendChild(div);
 
