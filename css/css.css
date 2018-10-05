@@ -158,7 +158,7 @@ html, body {
     border-radius: 6px;
     text-align: center;
     text-decoration: none;
-    font-size: 40px;
+    font-size: 8%;
     background: green;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -174,10 +174,21 @@ html, body {
     background: #0f459b;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    margin-top: 3%;
 
 }
 
 #save:hover{
     background: #1560d8;
     color: white;
+}
+
+#commentMessage{
+    font-family: Arial, serif;
+    margin-left: 5%;
+}
+
+h2{
+    margin: 0;
+    font-family: Arial, serif;
 }
