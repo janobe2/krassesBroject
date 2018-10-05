@@ -90,7 +90,7 @@
     userService.initialize(false);
     var items = userService.getItems();
 
-
+    //Macht eine random ID
     function makeid() {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -103,6 +103,7 @@
 
     var id = makeid();
 
+    //Ortung des Geräts
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(writePosition);
     }
@@ -118,7 +119,9 @@
         message.setAttribute("hidden", "true");
     }
 
+    //Daten speichern
     function save() {
+        //Wenn Name leer ist, kommt eine Fehlermeldung
         if (document.getElementById("textbox").value !== "") {
 
             //Geolocation
@@ -126,20 +129,26 @@
                 navigator.geolocation.getCurrentPosition(writePosition);
             }
 
+            //Falls man einen Schreibfehler macht, und nochmals auf Speichern klickt,
+            //ohne die Seite zu verlassen
+            //wird der alte Wert überschrieben
             for (var i = items.length - 1; i >= 0; i--) {
                 if (items[i].id === id) {
                     userService.removeItem(id);
                 }
             }
+            //Daten werden in die lokale Datenbank gespeichert
             userService.addItem(id, document.getElementById("textbox").value, document.getElementById("textbox2").value, latitude, longitude);
 
+            //Nachricht erscheint, dass die Speicherung erfolgreich war.
             message.style.color = "darkgreen";
             message.innerHTML = "Speicherung erfolgreich!";
         } else {
-
+            //Fehlermeldung erscheint
             message.style.color = "red";
             message.innerHTML = "Geben Sie einen Namen ein!";
         }
+        //Nachricht wird jetzt angezeigt und verschwindet nach 5 Minuten wieder
         message.removeAttribute("hidden");
         setTimeout(disappear, 5000);
     }
